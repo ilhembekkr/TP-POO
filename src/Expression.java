@@ -1,8 +1,13 @@
 public class Expression {
-    private string expressionStr ;
+    private String expressionStr ;
 
-    Public Double evaluer (){
+    public void Expression(String exp){
+        this.expressionStr= exp ;
+    }
 
+    public double evaluer(){
+        System.out.println("evaluer");
+        return 0;
     }
 
 
