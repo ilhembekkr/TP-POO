@@ -1,7 +1,7 @@
 public class Symbole {
     private String nom;
 
-    public void Symbole(String nom){
+    public Symbole(String nom){
         this.nom=nom;
     }
 

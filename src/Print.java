@@ -1,8 +1,8 @@
 public class Print extends Commande {
 
 
-    public void Print(String op){
-        super.Commande(op);
+    public Print(String op){
+        super(op);
     }
 
 

@@ -1,7 +1,7 @@
 public abstract class Commande {
     private String operande;
 
-    public void Commande(String op) {
+    public Commande(String op) {
         this.operande = op;
     }
 

@@ -1,19 +1,35 @@
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+
 public class TableSymboles {
-    private Symbole[] tableSymboles ;
+    private ArrayList<Symbole>  tableSymboles ;
 
-    public void TableSymboles(){
+    public TableSymboles(){
 
-        this.tableSymboles=new Symbole[]{};
+        this.tableSymboles=new ArrayList<Symbole>();
     }
 
 
     public Symbole recherche(String nomSymb)//rechercher un symbole dans la table  ,
                                             // retourne le symbole si trouvé , null sinon
     {
-        return null;
+        boolean trouv=false ;
+        for (int i=0 ; i< tableSymboles.size() ; i++){
+          if  (tableSymboles.get(i).getNom()==nomSymb) {
+              trouv=true ;
+              return tableSymboles.get(i);
+          }
+        }
+        if (trouv==false) { return null ;}
+        return null ;
     }
 
     public boolean ajouterSymbole (Symbole symb){
-        return false ;
+        if (this.recherche(symb.getNom()) == null )
+        { tableSymboles.add(symb );
+        return true ;}
+        else
+        {return false ;}
     }
 }

@@ -2,8 +2,8 @@ public class Variable extends Symbole {
 
     private double valeur ;
 
-    public void Variable(String nom,Double val){
-        super.Symbole(nom);
+    public Variable(String nom,Double val){
+        super(nom);
         this.valeur=val ;
     }
 
