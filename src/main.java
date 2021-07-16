@@ -8,11 +8,11 @@ class Tp {
 
     public static void main(String args[])  {
 
-
-        Expression exp=new Expression("(-2)^2");
+        TableSymboles table = new TableSymboles() ;
+        Expression exp=new Expression("(-2)^2*log(2)");
         double x=0;
 
-       try {
+        try {
             exp.analyserParent();
             x=exp.eval();
         }
@@ -23,12 +23,12 @@ class Tp {
         catch (ParOuvManqException e){
             System.out.println("parenthese ouvrante manquante !");
         }
-       catch (FonctionIntrouvableException e){
-           System.out.println("FonctionIntrouvable !");
-       }
-       catch (SyntaxErrorException e){
-           System.out.println("erreur de syntaxe  !");
-       }
+        catch (FonctionIntrouvableException e){
+            System.out.println("FonctionIntrouvable !");
+        }
+        catch (SyntaxErrorException e){
+            System.out.println("erreur de syntaxe  !");
+        }
         System.out.println(x);
 
 

@@ -1,8 +1,9 @@
 public class Let extends Commande {
+
     private String variable ;
     private String valeur ;
 
-    Let (String op){
+    public Let (String op){
         super(op);
     }
 
