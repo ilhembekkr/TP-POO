@@ -15,10 +15,7 @@ public class Expression {
     public void analyser() throws SyntaxErrorException {
         Pile pile = new Pile();
         int i=0 ;
-        char
-        while (this.expressionStr[i]=' ') {
-            if
-        }
+
 
     }
 
