@@ -1,32 +1,29 @@
 public class LigneDeCommande {
-    private String chaine ;
-    private String[] list =new String[2];
-    private Commande cmd ;
+    private String ligneStr ;
 
-    public LigneDeCommande(String ch){
-        this.chaine=ch;
+    LigneDeCommande(String Cmd){
+        ligneStr = Cmd ;
     }
+    public Commande extraireCommande() throws CommandeIntrouvableException ,SyntaxErrorException {
+        String [] ligne =  ligneStr.split(" ");
 
-    public void setChaine(String chaine) {
-        this.chaine = chaine;
-    }
+        if (ligneStr.trim().startsWith("let") ) {
+            String operande = ligneStr.trim().replace("let","") ;
+            new Let(operande);
 
-    public String getChaine() {
-        return chaine;
-    }
-
-    public void interpreter() throws CommandeIntrouvableException {
-        list=this.chaine.split(" ",2);
-        System.out.println(list[0]);
-        System.out.println(list[1]);
-        switch (list[0]){
-            case "print" :
-                 this.cmd = new Print(list[1]);
-                break ;
-            case "let" :
-                this.cmd=new Let(list[1]);
-                break ;
-            default :  throw new CommandeIntrouvableException();
         }
+        else if (ligneStr.trim().startsWith("print") ) {
+            String operande = ligneStr.trim().replace("let","") ;
+            new Print(operande);
+        } else {
+            throw new SyntaxErrorException() ;
+        }
+
     }
+
+    public String extraireOperande(){
+        String [] ligne =  ligneStr.split(" ");
+        return
+    }
+
 }
