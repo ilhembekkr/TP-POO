@@ -58,7 +58,7 @@ public class Expression {
 
 
 
-            double parseExpression() {
+            double parseExpression() throws SyntaxErrorException {
                 double x = parseTerm();
                 for (;;) {
                     if      (eat('+')) x += parseTerm(); // addition
@@ -67,7 +67,7 @@ public class Expression {
                 }
             }
 
-            double parseTerm() {
+            double parseTerm() throws SyntaxErrorException {
                 double x = parseFactor();
                 for (;;) {
                     if      (eat('*')) x *= parseFactor(); // multiplication
@@ -76,7 +76,7 @@ public class Expression {
                 }
             }
 
-            double parseFactor() {
+            double parseFactor() throws SyntaxErrorException {
                 if (eat('+')) return parseFactor(); // unary plus
                 if (eat('-')) return -parseFactor(); // unary minus
 
@@ -102,9 +102,11 @@ public class Expression {
                         if( x>0 ) { x = Math.log(x);}
                         else  { System.out.println("parametre de log negatif !"); }
                     }
-                    else throw new RuntimeException("fonction non existante : " + func);
+                    else //throw new RuntimeException("fonction non existante : " + func);
+                        throw new FonctionIntrouvableException();
                 } else {
-                    throw new RuntimeException("Unexpected: " + (char)ch);
+                    //throw new RuntimeException("Unexpected: " + (char)ch);
+                    throw new SyntaxErrorException();
                 }
 
                 if (eat('^')) x = Math.pow(x, parseFactor()); // exponentiation
