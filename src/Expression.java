@@ -8,7 +8,7 @@ public class Expression {
         this.string= exp ;
     }
 
-    public void analyser() throws ParOuvManqException , ParFermManqException{
+    public void analyserParent() throws ParOuvManqException , ParFermManqException{
         Pile pile = new Pile();
         int i=0 ;
         //System.out.println(string.length());
@@ -31,7 +31,7 @@ public class Expression {
     }
 
 
-    public  double eval() {
+    public  double eval() throws SyntaxErrorException {
         final String str=this.string;
         return new Object() {
             int pos = -1, ch;
@@ -49,18 +49,14 @@ public class Expression {
                 return false;
             }
 
-            double parse() {
+            double parse() throws SyntaxErrorException {
                 nextChar();
                 double x = parseExpression();
-                if (pos < str.length()) throw new RuntimeException("Unexpected: " + (char)ch);
+                if (pos < str.length()) {throw new SyntaxErrorException();};
                 return x;
             }
 
-            // Grammar:
-            // expression = term | expression `+` term | expression `-` term
-            // term = factor | term `*` factor | term `/` factor
-            // factor = `+` factor | `-` factor | `(` expression `)`
-            //        | number | functionName factor | factor `^` factor
+
 
             double parseExpression() {
                 double x = parseTerm();
@@ -106,7 +102,7 @@ public class Expression {
                         if( x>0 ) { x = Math.log(x);}
                         else  { System.out.println("parametre de log negatif !"); }
                     }
-                    else throw new RuntimeException("Unknown function: " + func);
+                    else throw new RuntimeException("fonction non existante : " + func);
                 } else {
                     throw new RuntimeException("Unexpected: " + (char)ch);
                 }
