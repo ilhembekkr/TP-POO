@@ -21,9 +21,6 @@ public class LigneDeCommande {
 
     }
 
-    public String extraireOperande(){
-        String [] ligne =  ligneStr.split(" ");
-        return "";
-    }
+
 
 }
