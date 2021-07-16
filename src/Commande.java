@@ -1,5 +1,5 @@
 public abstract class Commande {
-    private String operande;
+    protected String operande;
 
     public Commande(String op) {
         this.operande = op;
