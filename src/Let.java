@@ -6,7 +6,7 @@ public class Let extends Commande {
         super(op);
     }
 
-    private boolean isVariable(TableSymboles table) {
+  /*  private boolean isVariable(TableSymboles table) {
         if (table.recherche(variable) == null ) {
             // variable introuvable
         }
@@ -14,9 +14,16 @@ public class Let extends Commande {
 
         }
 
+    }*/
+
+
+    public void executer(){
+
+
     }
+
     public void executer(TableSymboles table){
-        String[] stringlist = operande.split("=") ;
+        String[] stringlist = operande.trim().split("=") ;
             if (stringlist == null){
                 new SyntaxErrorException() ;
             }
