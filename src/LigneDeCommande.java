@@ -1,10 +1,11 @@
 public class LigneDeCommande {
     private String ligneStr ;
 
-    LigneDeCommande(String Cmd){
+    public LigneDeCommande(String Cmd){
         ligneStr = Cmd ;
     }
-    public  Commande extraireCommande() throws CommandeIntrouvableException  {
+
+    public Commande extraireCommande() throws CommandeIntrouvableException ,SyntaxErrorException {
         String [] ligne =  ligneStr.split(" ");
 
         if (ligneStr.trim().startsWith("let") ) {
@@ -13,17 +14,17 @@ public class LigneDeCommande {
 
         }
         else if (ligneStr.trim().startsWith("print") ) {
-            String operande = ligneStr.trim().replace("print","") ;
+            String operande = ligneStr.trim().replace("let","") ;
             return new Print(operande);
         } else {
-            throw new CommandeIntrouvableException() ;
+            throw new SyntaxErrorException() ;
         }
 
     }
 
-    public String extraireOperande(){
+    /*public String extraireOperande(){
         String [] ligne =  ligneStr.split(" ");
-        return "";
-    }
+        return ;
+    }*/
 
 }
