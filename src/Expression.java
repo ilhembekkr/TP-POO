@@ -1,4 +1,4 @@
-
+import java.util.HashMap;
 
 public class Expression {
 
@@ -116,5 +116,23 @@ public class Expression {
         }.parse();
     }
 
+    public Double evaluer (TableSymboles table) throws SyntaxErrorException {
+
+        for (HashMap.Entry<String, Double> entry : table.getTableSymboles().entrySet()) {
+            String key = entry.getKey();
+            Double value = entry.getValue();
+            if (string.contains(key)) {
+                string.replace(key, value.toString());
+            }
+
+        }
+
+        try {
+            return eval();
+        }
+        catch (SyntaxErrorException e3) {
+            throw e3;
+        }
+    }
 
 }

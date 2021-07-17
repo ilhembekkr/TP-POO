@@ -1,11 +1,13 @@
 public class Let extends Commande {
 
     private String variable ;
-    private String valeur ;
+    private Double valeur ;
 
     public Let (String op){
         super(op);
     }
+
+
 
   /*  private boolean isVariable(TableSymboles table) {
         if (table.recherche(variable) == null ) {
@@ -18,28 +20,34 @@ public class Let extends Commande {
     }*/
 
 
-    public void executer(){
+    public void executer(TableSymboles table) throws ParFermManqException, ParOuvManqException {
+        if ( table.recherche(variable) == null ){
+            try {
+                System.out.println("hi");
+                Expression expVar = new Expression(variable);
+                Double newval = expVar.evaluer(table) ;
+                table.ajouterSymbole(variable,newval); ;
 
+            }
+            catch(ParFermManqException e1){
+                System.out.println("parenthese fermante manquante !");
+            }
+            catch(ParOuvManqException e2){
+                System.out.println("parenthese ouvrante manquante !");
+            }
+            catch (FonctionIntrouvableException e){
+                System.out.println("FonctionIntrouvable !");}
+            catch (SyntaxErrorException e) {
+                System.out.println("erreur de syntaxe  !");
+            }
+
+        } else {
+            table.ajouterSymbole(variable,valeur);
+        }
 
     }
 
-    public void executer(TableSymboles table){
-        String[] stringlist = operande.trim().split("=") ;
-            if (stringlist == null){
-                new SyntaxErrorException() ;
-            }
-            else {
-                this.variable = stringlist[0] ;
-                this.valeur = stringlist[1] ;
-            }
-            if(table.recherche(variable) == null ) {
-                // exception
 
-            }
-
-
-
-        }
 
 
 
