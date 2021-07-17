@@ -1,7 +1,7 @@
 public class LigneDeCommande {
     private String ligneStr ;
 
-    LigneDeCommande(String Cmd){
+    public LigneDeCommande(String Cmd){
         ligneStr = Cmd ;
     }
     public  Commande extraireCommande() throws CommandeIntrouvableException  {

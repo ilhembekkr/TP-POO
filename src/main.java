@@ -8,7 +8,7 @@ class Tp {
 
     public static void main(String args[])  {
 
-        TableSymboles table = new TableSymboles() ;
+      /*
 
         double x=0;
         Let myLet = new Let("y = 26");
@@ -45,5 +45,8 @@ class Tp {
 
 
 */
+
+        Interpreteur i = new Interpreteur();
+        i.lancer();
     }
 }
