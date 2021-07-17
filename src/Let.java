@@ -1,12 +1,24 @@
+import java.util.Arrays;
+import java.util.List;
+
 public class Let extends Commande {
 
     private String variable ;
     private String expression  ;
 
-    public Let (String op){
+    public Let (String op) throws DeclarationInterditeException{
         super(op);
+        String variableInterdite[] = {"log", "l", "o", "s", "g", "lo", "og", "sin", "s", "i", "n", "si", "in", "cos", "c", "co", "os"};
         String[] s=op.trim().split("=");
         this.variable=s[0].trim();
+        boolean trouv = false ;
+        int i =0 ;
+        while ((trouv != true) && (  variableInterdite.length < i )){
+            if (this.variable == variableInterdite[i] ) {
+                trouv = true ;
+                throw new DeclarationInterditeException() ;
+            }
+        }
         System.out.println(variable);
         this.expression=s[1].trim();
         System.out.println(expression);
