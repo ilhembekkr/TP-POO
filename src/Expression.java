@@ -134,7 +134,7 @@ public class Expression {
 
 
             if (string.contains(key.trim())) {
-                string.replace(key.trim(), value.toString().trim());
+                string= string.replace(key.trim(), value.toString().trim());
             }
 
 
