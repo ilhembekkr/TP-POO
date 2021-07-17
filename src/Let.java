@@ -22,7 +22,7 @@ public class Let extends Commande {
         boolean erreur=false ;
         //boolean isNum = false ;
         double valeur=0 ;
-        if (expVar.isNumber()) {  valeur = Double.parseDouble(String.valueOf(expression)) ;System.out.println("hhh");}
+        if (expVar.isNumber()) {  valeur = Double.parseDouble(String.valueOf(expression)) ;}
         else {
             try {
                 expVar.analyserParent();

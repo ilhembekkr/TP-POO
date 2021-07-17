@@ -62,7 +62,7 @@ public class Expression {
             double parse() throws SyntaxErrorException {
                 nextChar();
                 double x = parseExpression();
-                if (pos < str.length()) {throw new SyntaxErrorException();};
+                if (pos < str.length()) {throw new SyntaxErrorException();}
                 return x;
             }
 
@@ -131,13 +131,9 @@ public class Expression {
         for (HashMap.Entry<String, Double> entry : table.getTableSymboles().entrySet()) {
             String key = entry.getKey().trim();
             Double value = entry.getValue();
-
-
             if (string.contains(key.trim())) {
                 string= string.replace(key.trim(), value.toString().trim());
             }
-
-
         }
 
         try {
