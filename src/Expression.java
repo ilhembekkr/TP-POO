@@ -133,8 +133,8 @@ public class Expression {
             Double value = entry.getValue();
 
 
-            if (string.contains(key)) {
-                string.replace(key, value.toString());
+            if (string.contains(key.trim())) {
+                string.replace(key.trim(), value.toString().trim());
             }
 
 

@@ -5,9 +5,9 @@ public class Interpreteur {
         Commande commande ;
         TableSymboles table = new TableSymboles() ;
         Scanner scan= new Scanner(System.in);
+        System.out.print(">");
         String ligne = scan.nextLine();
-        System.out.println(ligne);
-        while (ligne.trim() != "end") {
+        while (ligne.compareTo("end")!=0) {
 
             LigneDeCommande l = new LigneDeCommande(ligne);
             try {
@@ -18,9 +18,11 @@ public class Interpreteur {
             catch (CommandeIntrouvableException e ){
                 System.out.println("commande introuvable !");
             }
+            System.out.print(">");
             ligne = scan.nextLine();
 
         }
+        System.out.println("fin du programme ");
         System.exit(0);
     }
 }
