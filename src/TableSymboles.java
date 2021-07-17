@@ -23,7 +23,7 @@ public class TableSymboles {
     }
 
     public void ajouterSymbole (String nomSymb,Double valeur){
-        tableSymboles.put(nomSymb,valeur);
+        tableSymboles.put(nomSymb.trim(),valeur);
     }
 }
 

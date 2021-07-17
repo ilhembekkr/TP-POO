@@ -6,8 +6,10 @@ public class Let extends Commande {
     public Let (String op){
         super(op);
         String[] s=op.trim().split("=");
-        this.variable=s[0];
-        this.expression=s[1];
+        this.variable=s[0].trim();
+        System.out.println(variable);
+        this.expression=s[1].trim();
+        System.out.println(expression);
     }
 
 

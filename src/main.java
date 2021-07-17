@@ -11,8 +11,13 @@ class Tp {
         TableSymboles table = new TableSymboles() ;
 
         double x=0;
-        Let myLet = new Let("x = 5");
+        Let myLet = new Let("y = 5*cos(23)");
         myLet.executer(table);
+        Print print=new Print("y");
+        print.executer(table );
+       // Let myLet2 = new Let("y =y+5");
+       // myLet2.executer(table);
+        //System.out.println(table.getTableSymboles().get("y"));
 
         //Expression exp=new Expression("");
         //System.out.println(table.getTableSymboles().get(x));

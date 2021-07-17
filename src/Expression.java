@@ -131,9 +131,12 @@ public class Expression {
         for (HashMap.Entry<String, Double> entry : table.getTableSymboles().entrySet()) {
             String key = entry.getKey();
             Double value = entry.getValue();
+
+
             if (string.contains(key)) {
                 string.replace(key, value.toString());
             }
+            System.out.println("hadi"+string);
 
         }
 
