@@ -19,6 +19,6 @@ public abstract class Commande {
         return null ;
     }
 
-    abstract public void executer();
+    //abstract public void executer();
 
 }

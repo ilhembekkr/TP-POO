@@ -9,10 +9,14 @@ class Tp {
     public static void main(String args[])  {
 
         TableSymboles table = new TableSymboles() ;
-        Expression exp=new Expression("(-2)^2*log(2)");
+
         double x=0;
+        Let myLet = new Let("x = 5");
+        ;
+        Expression exp=new Expression("x^2*log(2)");
 
         try {
+            myLet.executer(table);
             exp.analyserParent();
             x=exp.eval();
         }

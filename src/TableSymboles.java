@@ -9,7 +9,9 @@ public class TableSymboles {
 
         this.tableSymboles=new HashMap<String , Double>();
     }
-
+    public HashMap<String , Double> getTableSymboles(){
+        return tableSymboles ;
+    }
 
     public Double recherche(String nomSymb)//rechercher une variable dans la table  ,
     // retourne la valeur symbole si trouvé , null sinon
