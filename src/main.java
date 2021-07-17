@@ -12,10 +12,12 @@ class Tp {
 
         double x=0;
         Let myLet = new Let("x = 5");
-        ;
-        Expression exp=new Expression("x^2*log(2)");
+        myLet.executer(table);
 
-        try {
+        //Expression exp=new Expression("");
+        //System.out.println(table.getTableSymboles().get(x));
+
+      /*  try {
             myLet.executer(table);
             exp.analyserParent();
             x=exp.eval();
@@ -37,6 +39,6 @@ class Tp {
 
 
 
-
+*/
     }
 }

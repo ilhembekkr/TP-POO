@@ -8,6 +8,16 @@ public class Expression {
         this.string= exp ;
     }
 
+
+    public  boolean isNumber()
+    {
+        for (char c : string.toCharArray())
+        {
+            if (!Character.isDigit(c)) return false;
+        }
+        return true;
+    }
+
     public void analyserParent() throws ParOuvManqException , ParFermManqException{
         Pile pile = new Pile();
         int i=0 ;
@@ -116,8 +126,8 @@ public class Expression {
         }.parse();
     }
 
-    public Double evaluer (TableSymboles table) throws SyntaxErrorException {
-
+    public double  evaluer (TableSymboles table) {
+        double val=0;
         for (HashMap.Entry<String, Double> entry : table.getTableSymboles().entrySet()) {
             String key = entry.getKey();
             Double value = entry.getValue();
@@ -128,11 +138,14 @@ public class Expression {
         }
 
         try {
-            return eval();
+            val=eval();
         }
-        catch (SyntaxErrorException e3) {
-            throw e3;
+        catch (FonctionIntrouvableException e) {
+            System.out.println("FonctionIntrouvable !");
+        } catch (SyntaxErrorException e) {
+            System.out.println("erreur de syntaxe  !");
         }
+        return val ;
     }
 
 }

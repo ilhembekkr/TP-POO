@@ -1,49 +1,43 @@
 public class Let extends Commande {
 
     private String variable ;
-    private Double valeur ;
+    private String expression  ;
 
     public Let (String op){
         super(op);
+        String[] s=op.trim().split("=");
+        this.variable=s[0];
+        this.expression=s[1];
     }
 
 
 
-  /*  private boolean isVariable(TableSymboles table) {
-        if (table.recherche(variable) == null ) {
-            // variable introuvable
-        }
+
+
+
+    public void executer(TableSymboles table)  {
+        Expression expVar = new Expression(expression);
+        //boolean isNum = false ;
+        double valeur=0 ;
+        if (expVar.isNumber()) {  valeur = Double.parseDouble(String.valueOf(expVar)) ;}
         else {
-
-        }
-
-    }*/
-
-
-    public void executer(TableSymboles table) throws ParFermManqException, ParOuvManqException {
-        if ( table.recherche(variable) == null ){
             try {
-                System.out.println("hi");
-                Expression expVar = new Expression(variable);
-                Double newval = expVar.evaluer(table) ;
-                table.ajouterSymbole(variable,newval); ;
+                expVar.analyserParent();
+                valeur  = expVar.evaluer(table);
 
-            }
-            catch(ParFermManqException e1){
+
+            } catch (ParFermManqException e1) {
                 System.out.println("parenthese fermante manquante !");
-            }
-            catch(ParOuvManqException e2){
+            } catch (ParOuvManqException e2) {
                 System.out.println("parenthese ouvrante manquante !");
             }
-            catch (FonctionIntrouvableException e){
-                System.out.println("FonctionIntrouvable !");}
-            catch (SyntaxErrorException e) {
-                System.out.println("erreur de syntaxe  !");
-            }
-
-        } else {
-            table.ajouterSymbole(variable,valeur);
         }
+
+        System.out.println(variable);
+
+            table.ajouterSymbole(variable,valeur);
+
+        System.out.println("valeur ajoutee"+valeur);
 
     }
 
