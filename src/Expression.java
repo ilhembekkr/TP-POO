@@ -129,14 +129,14 @@ public class Expression {
     public double  evaluer (TableSymboles table) {
         double val=0;
         for (HashMap.Entry<String, Double> entry : table.getTableSymboles().entrySet()) {
-            String key = entry.getKey();
+            String key = entry.getKey().trim();
             Double value = entry.getValue();
 
 
             if (string.contains(key)) {
                 string.replace(key, value.toString());
             }
-            System.out.println("hadi"+string);
+
 
         }
 

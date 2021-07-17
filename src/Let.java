@@ -19,9 +19,10 @@ public class Let extends Commande {
 
     public void executer(TableSymboles table)  {
         Expression expVar = new Expression(expression);
+        boolean erreur=false ;
         //boolean isNum = false ;
         double valeur=0 ;
-        if (expVar.isNumber()) {  valeur = Double.parseDouble(String.valueOf(expVar)) ;}
+        if (expVar.isNumber()) {  valeur = Double.parseDouble(String.valueOf(expression)) ;System.out.println("hhh");}
         else {
             try {
                 expVar.analyserParent();
@@ -29,17 +30,19 @@ public class Let extends Commande {
 
 
             } catch (ParFermManqException e1) {
+                erreur=true ;
                 System.out.println("parenthese fermante manquante !");
             } catch (ParOuvManqException e2) {
+                erreur=true ;
                 System.out.println("parenthese ouvrante manquante !");
             }
         }
 
         System.out.println(variable);
 
-            table.ajouterSymbole(variable,valeur);
+           if (!erreur ){ table.ajouterSymbole(variable,valeur);
 
-        System.out.println("valeur ajoutee"+valeur);
+        System.out.println("valeur ajoutee"+valeur);}
 
     }
 

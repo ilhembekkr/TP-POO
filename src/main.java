@@ -11,9 +11,9 @@ class Tp {
         TableSymboles table = new TableSymboles() ;
 
         double x=0;
-        Let myLet = new Let("y = 5*cos(23)");
+        Let myLet = new Let("y = 26");
         myLet.executer(table);
-        Print print=new Print("y");
+        Print print=new Print("50");
         print.executer(table );
        // Let myLet2 = new Let("y =y+5");
        // myLet2.executer(table);
